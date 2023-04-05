@@ -1,33 +1,49 @@
 import React from "react";
 import { NavigationContainer } from "@react-navigation/native";
-import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+
+const Tab = createBottomTabNavigator();
 
 import HomeScreen from "./screens/HomeScreen";
-import AddIncomeScreen from "./screens/AddIncomeScreen";
-import AddExpenseScreen from "./screens/AddExpenseScreen";
-
-const Stack = createNativeStackNavigator();
+import HabitIndex from "./screens/habits/HabitIndex";
+import MoneyHome from "./screens/MoneyHome";
+import AbstinenceScreen from "./screens/AbstinenceScreen";
+import NotesScreen from "./screens/NotesScreen";
 
 export default function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator>
-        <Stack.Screen
-          name="Home"
+      <Tab.Navigator
+        screenOptions={{
+          headerShown: false,
+        }}
+      >
+        <Tab.Screen
+          name="Dinero"
+          component={MoneyHome}
+          options={{ title: "Dinero" }}
+        />
+        <Tab.Screen
+          name="Habitos"
+          component={HabitIndex}
+          options={{ title: "Habitos" }}
+        />
+        <Tab.Screen
+          name="Inicio"
           component={HomeScreen}
-          options={{ title: "Mi Cuenta" }}
+          options={{ title: "Inicio" }}
         />
-        <Stack.Screen
-          name="AddIncome"
-          component={AddIncomeScreen}
-          options={{ title: "Agregar Ingreso" }}
+        <Tab.Screen
+          name="Abstinencia"
+          component={AbstinenceScreen}
+          options={{ title: "Abstinencia" }}
         />
-        <Stack.Screen
-          name="AddExpense"
-          component={AddExpenseScreen}
-          options={{ title: "Agregar Gasto" }}
+        <Tab.Screen
+          name="Notas"
+          component={NotesScreen}
+          options={{ title: "Notas" }}
         />
-      </Stack.Navigator>
+      </Tab.Navigator>
     </NavigationContainer>
   );
 }
