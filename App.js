@@ -6,9 +6,9 @@ const Tab = createBottomTabNavigator();
 
 import HomeScreen from "./screens/HomeScreen";
 import HabitIndex from "./screens/habits/HabitIndex";
-import MoneyHome from "./screens/MoneyHome";
-import AbstinenceScreen from "./screens/AbstinenceScreen";
-import NotesScreen from "./screens/NotesScreen";
+import MoneyHome from "./screens/money/MoneyHome";
+import AbstinenceIndex from "./screens/abstinence/AbstinenceIndex";
+import NotesScreen from "./screens/notes/NotesScreen";
 
 export default function App() {
   return (
@@ -35,7 +35,7 @@ export default function App() {
         />
         <Tab.Screen
           name="Abstinencia"
-          component={AbstinenceScreen}
+          component={AbstinenceIndex}
           options={{ title: "Abstinencia" }}
         />
         <Tab.Screen
